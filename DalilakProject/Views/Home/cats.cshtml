@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "cats";
+}
+
+
+@{
+    ViewBag.Title = "LoadCategories";
+}
+
+<html>
+<head>
+    <title>Categories of Maadi</title>
+    <style>
+
+
+        span {
+            cursor: pointer;
+        }
+
+
+
+        div.gallery {
+            margin: 1px;
+            border: 1px solid #ccc;
+            float: center;
+            width: 700px;
+        }
+
+            div.gallery:hover {
+                border: 1px solid #777;
+                color: red;
+                text-decoration: underline;
+            }
+
+            div.gallery img {
+                width: 100%;
+                height: auto;
+            }
+
+        div.desc {
+            padding: 20px;
+            text-align: center;
+        }
+
+
+
+
+
+
+        .style1 {
+            font-size: x-large
+        }
+
+        .style2 {
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+        .style3 {
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <div style="background-image:url(/SiteImages/23.jpg)">
+        <center>
+            <h1 align="center">Categories </h1>
+            <center />
+
+
+
+
+
+            @*<div class="gallery">
+            <a target="_blank" href="hospital.html">
+
+                <img src="12.jpg" alt="Hospital" width="1200" height="800">
+            </a>
+            <div class="desc style1 style2"><span>Hospitals view All</span></div>
+        </div>*@
+
+
+            @foreach (var cat in Helpers.LoadCategories())
+            {
+                <div class="gallery">
+                    <a target="_blank" href="/home/loadlocations?catId=@cat.Id&areaId=@ViewBag.area">
+                        <img src="~/SiteImages/@cat.CategoryImage" alt="play" width="1200" height="800">
+                    </a>
+                    <div class="desc style1 style2">@cat.CategoryName - view All</div>
+                </div>
+            }
+
+            @*<div class="gallery">
+                <a target="_blank" href="play ground.html">
+                    <img src="14.jpg" alt="play" width="1200" height="800">
+                </a>
+                <div class="desc style1 style2">Football Curts view All</div>
+            </div>*@
+            @*<div class="gallery">
+            <a target="_blank" href="restaurant.html">
+                <img src="6.jpg" alt="res" width="1200" height="800">
+            </a>
+            <div class="desc style2 style1">Restaurants view All</div>
+        </div>
+
+
+
+        <div class="gallery">
+            <a target="_blank" href="companies.html">
+                <img src="15.jpg" alt="companies" width="1200" height="800">
+            </a>
+            <div class="desc style3">Companies view All</div>
+        </div>
+
+
+        <div class="gallery">
+            <a target="_blank" href="emergency.html">
+                <img src="16.jpg" alt="emergencycy" width="1200" height="800">
+            </a>
+            <div class="desc style2 style1">Emergency Phone Number view All</div>
+        </div>
+
+
+        <div class="gallery">
+            <a target="_blank" href="gas station.html">
+                <img src="17.jpg" alt="gas" width="1200" height="800">
+            </a>
+            <div class="desc style1 style2">Gas Stations & Services view All</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="pharmacy.html">
+                <img src="33.jpg" alt="pharmacy" width="1200" height="800">
+            </a>
+            <div class="desc style1 style2">Pharmacies view All</div>
+        </div>
+
+
+        <div class="gallery">
+            <a target="_blank" href="villa.html">
+                <img src="13.jpg" alt="villa" width="1200" height="800">
+            </a>
+            <div class="desc style1 style2">Drug Addiction Recovery Villas view All</div>
+        </div>*@
+
+
+</body>
+</html>
+
+
+
+

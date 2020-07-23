@@ -1,0 +1,202 @@
+﻿
+@model List<DalilakProject.Database.EmergencyPhoneNumber>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <link rel="shortcut icon" href="favicon.ico">
+
+
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="~/assets/css/theme-1.css">
+
+    <style type="text/css">
+        <!--
+        .style1 {
+            color: #FFFFFF;
+            background-color: #670080;
+        }
+
+        a:link {
+            color: #000000;
+        }
+
+        a:hover {
+            color: #FFFFFF;
+        }
+
+        h1 {
+            font-size: 2.5px;
+        }
+
+        h2 {
+            font-size: 2px;
+        }
+
+        h3 {
+            font-size: 1.75px;
+        }
+
+        h4 {
+            font-size: 1.5px;
+        }
+
+        h5 {
+            font-size: 1.25px;
+        }
+
+        h6 {
+            font-size: 1px;
+        }
+
+        .style2 {
+            color: #FFFFFF
+        }
+
+
+
+
+
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 70%;
+            background: #fff;
+        }
+
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #670050;
+            color: black;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+            form.example button:hover {
+                background: #0b7dda;
+            }
+
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .style3 {
+            color: #670080
+        }
+        -->
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    @*<link rel="stylesheet" href="~/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="~/css/magnific-popup.css">
+        <link rel="stylesheet" href="~/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/css/themify-icons.css">
+        <link rel="stylesheet" href="~/css/nice-select.css">
+        <link rel="stylesheet" href="~/css/flaticon.css">
+        <link rel="stylesheet" href="~/css/gijgo.css">
+        <link rel="stylesheet" href="~/css/animate.css">
+        <link rel="stylesheet" href="~/css/slicknav.css">
+        <link rel="stylesheet" href="~/css/style.css">*@
+    <script>
+        function ShowInfo(info) {
+            alert(infor);
+        }
+    </script>
+</head>
+
+<body>
+    <header class="header text-center style1">
+        <h1 class="blog-name pt-lg-4 mb-0"></h1><a href="Home Page.html" class="style2"> </a>
+        <p class="blog-name pt-lg-4 mb-0"></p>
+    </header>
+
+    <div class="main-wrapper">
+        @*<section class="cta-section theme-bg-light py-5">
+                <div class="container text-center">
+                    @if (Model.Locations.FirstOrDefault().Category != null)
+                    {
+                        <h2 class="heading style3">@(Model.Locations.FirstOrDefault()==null?"":Model.Locations.FirstOrDefault().Category.CategoryName)</h2>
+                    }
+
+                    <div class="intro"></div>
+
+                </div>
+            </section>*@
+
+
+
+
+
+        <section class="blog-list px-3 py-5 p-md-5">
+            <div class="container">
+
+                @foreach (var item in Model)
+                {
+                    <div class="item mb-5">
+                        <div class="media">
+                            <img src="~/images/@item.Image" alt="image" class="mr-3 img-fluid post-thumb d-none d-md-flex">
+                            <div class="media-body">
+                                <h3 class="title mb-1"><a href="blog-post.html"></a>@item.EmergencyPhoneNumberName</h3>
+
+
+                                <div class="intro">@item.Address</div>
+                                <br>	<br>
+<pre>
+
+<button onClick="alert('@item.Phone')">  Call Us</button><button onClick="alert('@item.Email')">Email</button><button onClick="window.location.href='@item.Website'">Website</button><button onClick="window.location.href='/home/map?loc=@item.Id'">  Map</button>
+</pre>
+
+                                <p id="demo"></p>
+                            </div><!--//media-body-->
+                        </div><!--//media-->
+                    </div><!--//item-->
+                }
+
+
+
+
+
+
+
+
+            </div>
+
+
+        </section>
+
+
+
+    </div><!--//main-wrapper-->
+    <script>
+        function myFunction(event) {
+            var x = event.view;
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
+</body>
+</html>
+
+

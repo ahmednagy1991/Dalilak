@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DalilakDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AreaName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Locations" Relationship="Self.FK_Location_Areas" FromRole="Areas" ToRole="Location" />
+    <NavigationProperty Name="Companies" Relationship="DalilakDatabaseModel.FK_Company_Areas" FromRole="Area" ToRole="Company" />
+    <NavigationProperty Name="DrugAddictionRecoveryVillas" Relationship="DalilakDatabaseModel.FK_DrugAddictionRecoveryVilla_Areas" FromRole="Area" ToRole="DrugAddictionRecoveryVilla" />
+    <NavigationProperty Name="EmergencyPhoneNumbers" Relationship="DalilakDatabaseModel.FK_EmergencyPhoneNumber_Areas" FromRole="Area" ToRole="EmergencyPhoneNumber" />
+    <NavigationProperty Name="FootballCourts" Relationship="DalilakDatabaseModel.FK_FootballCourt_Areas" FromRole="Area" ToRole="FootballCourt" />
+    <NavigationProperty Name="GasStations" Relationship="DalilakDatabaseModel.FK_GasStation_Areas" FromRole="Area" ToRole="GasStation" />
+    <NavigationProperty Name="Pharmacies" Relationship="DalilakDatabaseModel.FK_Pharmacy_Areas" FromRole="Area" ToRole="Pharmacy" />
+    <NavigationProperty Name="Restaurants" Relationship="DalilakDatabaseModel.FK_Restaurants_Areas" FromRole="Area" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Logo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="MenuOrder" Type="Int32" />
+    <Property Name="CategoryImage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Locations" Relationship="Self.FK_Location_Category" FromRole="Category" ToRole="Location" />
+    <NavigationProperty Name="Companies" Relationship="DalilakDatabaseModel.FK_Company_Category" FromRole="Category" ToRole="Company" />
+    <NavigationProperty Name="DrugAddictionRecoveryVillas" Relationship="DalilakDatabaseModel.FK_DrugAddictionRecoveryVilla_Category" FromRole="Category" ToRole="DrugAddictionRecoveryVilla" />
+    <NavigationProperty Name="EmergencyPhoneNumbers" Relationship="DalilakDatabaseModel.FK_EmergencyPhoneNumber_Category" FromRole="Category" ToRole="EmergencyPhoneNumber" />
+    <NavigationProperty Name="FootballCourts" Relationship="DalilakDatabaseModel.FK_FootballCourt_Category" FromRole="Category" ToRole="FootballCourt" />
+    <NavigationProperty Name="GasStations" Relationship="DalilakDatabaseModel.FK_GasStation_Category" FromRole="Category" ToRole="GasStation" />
+    <NavigationProperty Name="Pharmacies" Relationship="DalilakDatabaseModel.FK_Pharmacy_Category" FromRole="Category" ToRole="Pharmacy" />
+    <NavigationProperty Name="Restaurants" Relationship="DalilakDatabaseModel.FK_Restaurants_Category" FromRole="Category" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Category" Type="Int64" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AreaId" Type="Int64" />
+    <NavigationProperty Name="Area" Relationship="Self.FK_Location_Areas" FromRole="Location" ToRole="Areas" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Location_Category" FromRole="Location" ToRole="Category" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Location_Areas">
+    <End Role="Areas" Type="Self.Area" Multiplicity="0..1" />
+    <End Role="Location" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Location_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Location" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DalilakDatabaseEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Areas" EntityType="Self.Area" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Location_Areas" Association="Self.FK_Location_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="Location" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Location_Category" Association="Self.FK_Location_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Location" EntitySet="Locations" />
+    </AssociationSet>
+    <EntitySet Name="Suggestes" EntityType="DalilakDatabaseModel.Suggeste" />
+    <EntitySet Name="Users" EntityType="DalilakDatabaseModel.User" />
+    <AssociationSet Name="FK_Suggestes_Users" Association="DalilakDatabaseModel.FK_Suggestes_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Suggeste" EntitySet="Suggestes" />
+    </AssociationSet>
+    <EntitySet Name="Companies" EntityType="DalilakDatabaseModel.Company" />
+    <EntitySet Name="DrugAddictionRecoveryVillas" EntityType="DalilakDatabaseModel.DrugAddictionRecoveryVilla" />
+    <EntitySet Name="EmergencyPhoneNumbers" EntityType="DalilakDatabaseModel.EmergencyPhoneNumber" />
+    <EntitySet Name="FootballCourts" EntityType="DalilakDatabaseModel.FootballCourt" />
+    <EntitySet Name="GasStations" EntityType="DalilakDatabaseModel.GasStation" />
+    <EntitySet Name="Hospitals" EntityType="DalilakDatabaseModel.Hospital" />
+    <EntitySet Name="Pharmacies" EntityType="DalilakDatabaseModel.Pharmacy" />
+    <EntitySet Name="Restaurants" EntityType="DalilakDatabaseModel.Restaurant" />
+    <AssociationSet Name="FK_Company_Areas" Association="DalilakDatabaseModel.FK_Company_Areas">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DrugAddictionRecoveryVilla_Areas" Association="DalilakDatabaseModel.FK_DrugAddictionRecoveryVilla_Areas">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="DrugAddictionRecoveryVilla" EntitySet="DrugAddictionRecoveryVillas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmergencyPhoneNumber_Areas" Association="DalilakDatabaseModel.FK_EmergencyPhoneNumber_Areas">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="EmergencyPhoneNumber" EntitySet="EmergencyPhoneNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FootballCourt_Areas" Association="DalilakDatabaseModel.FK_FootballCourt_Areas">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="FootballCourt" EntitySet="FootballCourts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GasStation_Areas" Association="DalilakDatabaseModel.FK_GasStation_Areas">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="GasStation" EntitySet="GasStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pharmacy_Areas" Association="DalilakDatabaseModel.FK_Pharmacy_Areas">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="Pharmacy" EntitySet="Pharmacies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Restaurants_Areas" Association="DalilakDatabaseModel.FK_Restaurants_Areas">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="Restaurant" EntitySet="Restaurants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_Category" Association="DalilakDatabaseModel.FK_Company_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DrugAddictionRecoveryVilla_Category" Association="DalilakDatabaseModel.FK_DrugAddictionRecoveryVilla_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="DrugAddictionRecoveryVilla" EntitySet="DrugAddictionRecoveryVillas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmergencyPhoneNumber_Category" Association="DalilakDatabaseModel.FK_EmergencyPhoneNumber_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="EmergencyPhoneNumber" EntitySet="EmergencyPhoneNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FootballCourt_Category" Association="DalilakDatabaseModel.FK_FootballCourt_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="FootballCourt" EntitySet="FootballCourts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GasStation_Category" Association="DalilakDatabaseModel.FK_GasStation_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="GasStation" EntitySet="GasStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pharmacy_Category" Association="DalilakDatabaseModel.FK_Pharmacy_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Pharmacy" EntitySet="Pharmacies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Restaurants_Category" Association="DalilakDatabaseModel.FK_Restaurants_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Restaurant" EntitySet="Restaurants" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Suggeste">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Suggeset" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FK_UserID" Type="Int64" />
+    <NavigationProperty Name="User" Relationship="DalilakDatabaseModel.FK_Suggestes_Users" FromRole="Suggeste" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Emal" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Suggestes" Relationship="DalilakDatabaseModel.FK_Suggestes_Users" FromRole="User" ToRole="Suggeste" />
+  </EntityType>
+  <Association Name="FK_Suggestes_Users">
+    <End Type="DalilakDatabaseModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.Suggeste" Role="Suggeste" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Suggeste">
+        <PropertyRef Name="FK_UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Category" Type="Int64" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AreaId" Type="Int64" />
+    <NavigationProperty Name="Area" Relationship="DalilakDatabaseModel.FK_Company_Areas" FromRole="Company" ToRole="Area" />
+    <NavigationProperty Name="Category" Relationship="DalilakDatabaseModel.FK_Company_Category" FromRole="Company" ToRole="Category" />
+    <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DrugAddictionRecoveryVilla">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DrugAddictionRecoveryVillaName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Category" Type="Int64" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AreaId" Type="Int64" />
+    <NavigationProperty Name="Area" Relationship="DalilakDatabaseModel.FK_DrugAddictionRecoveryVilla_Areas" FromRole="DrugAddictionRecoveryVilla" ToRole="Area" />
+    <NavigationProperty Name="Category" Relationship="DalilakDatabaseModel.FK_DrugAddictionRecoveryVilla_Category" FromRole="DrugAddictionRecoveryVilla" ToRole="Category" />
+    <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmergencyPhoneNumber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmergencyPhoneNumberName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Category" Type="Int64" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AreaId" Type="Int64" />
+    <NavigationProperty Name="Area" Relationship="DalilakDatabaseModel.FK_EmergencyPhoneNumber_Areas" FromRole="EmergencyPhoneNumber" ToRole="Area" />
+    <NavigationProperty Name="Category" Relationship="DalilakDatabaseModel.FK_EmergencyPhoneNumber_Category" FromRole="EmergencyPhoneNumber" ToRole="Category" />
+    <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FootballCourt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FootballCourtName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Category" Type="Int64" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AreaId" Type="Int64" />
+    <NavigationProperty Name="Area" Relationship="DalilakDatabaseModel.FK_FootballCourt_Areas" FromRole="FootballCourt" ToRole="Area" />
+    <NavigationProperty Name="Category" Relationship="DalilakDatabaseModel.FK_FootballCourt_Category" FromRole="FootballCourt" ToRole="Category" />
+    <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GasStation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GasStationName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Category" Type="Int64" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AreaId" Type="Int64" />
+    <NavigationProperty Name="Area" Relationship="DalilakDatabaseModel.FK_GasStation_Areas" FromRole="GasStation" ToRole="Area" />
+    <NavigationProperty Name="Category" Relationship="DalilakDatabaseModel.FK_GasStation_Category" FromRole="GasStation" ToRole="Category" />
+    <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Hospital">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HospitalName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Category" Type="Int64" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AreaId" Type="Int64" />
+    <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Pharmacy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PharmacyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Category" Type="Int64" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AreaId" Type="Int64" />
+    <NavigationProperty Name="Area" Relationship="DalilakDatabaseModel.FK_Pharmacy_Areas" FromRole="Pharmacy" ToRole="Area" />
+    <NavigationProperty Name="Category" Relationship="DalilakDatabaseModel.FK_Pharmacy_Category" FromRole="Pharmacy" ToRole="Category" />
+    <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Restaurant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantsName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Category" Type="Int64" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AreaId" Type="Int64" />
+    <NavigationProperty Name="Area" Relationship="DalilakDatabaseModel.FK_Restaurants_Areas" FromRole="Restaurant" ToRole="Area" />
+    <NavigationProperty Name="Category" Relationship="DalilakDatabaseModel.FK_Restaurants_Category" FromRole="Restaurant" ToRole="Category" />
+    <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Company_Areas">
+    <End Type="DalilakDatabaseModel.Area" Role="Area" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.Company" Role="Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DrugAddictionRecoveryVilla_Areas">
+    <End Type="DalilakDatabaseModel.Area" Role="Area" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.DrugAddictionRecoveryVilla" Role="DrugAddictionRecoveryVilla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DrugAddictionRecoveryVilla">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmergencyPhoneNumber_Areas">
+    <End Type="DalilakDatabaseModel.Area" Role="Area" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.EmergencyPhoneNumber" Role="EmergencyPhoneNumber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmergencyPhoneNumber">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FootballCourt_Areas">
+    <End Type="DalilakDatabaseModel.Area" Role="Area" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.FootballCourt" Role="FootballCourt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FootballCourt">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GasStation_Areas">
+    <End Type="DalilakDatabaseModel.Area" Role="Area" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.GasStation" Role="GasStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GasStation">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pharmacy_Areas">
+    <End Type="DalilakDatabaseModel.Area" Role="Area" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.Pharmacy" Role="Pharmacy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pharmacy">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Restaurants_Areas">
+    <End Type="DalilakDatabaseModel.Area" Role="Area" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.Restaurant" Role="Restaurant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Restaurant">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_Category">
+    <End Type="DalilakDatabaseModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.Company" Role="Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DrugAddictionRecoveryVilla_Category">
+    <End Type="DalilakDatabaseModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.DrugAddictionRecoveryVilla" Role="DrugAddictionRecoveryVilla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DrugAddictionRecoveryVilla">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmergencyPhoneNumber_Category">
+    <End Type="DalilakDatabaseModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.EmergencyPhoneNumber" Role="EmergencyPhoneNumber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmergencyPhoneNumber">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FootballCourt_Category">
+    <End Type="DalilakDatabaseModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.FootballCourt" Role="FootballCourt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FootballCourt">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GasStation_Category">
+    <End Type="DalilakDatabaseModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.GasStation" Role="GasStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GasStation">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pharmacy_Category">
+    <End Type="DalilakDatabaseModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.Pharmacy" Role="Pharmacy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pharmacy">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Restaurants_Category">
+    <End Type="DalilakDatabaseModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="DalilakDatabaseModel.Restaurant" Role="Restaurant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Restaurant">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

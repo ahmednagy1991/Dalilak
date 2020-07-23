@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5288702ab32242699adf05307bc8364c" Name="Diagram1">
+        <EntityTypeShape EntityType="DalilakDatabaseModel.Area" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.Category" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.Location" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Location_Areas" ManuallyRouted="false" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Location_Category" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.Suggeste" Width="1.5" PointX="7.625" PointY="4.125" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.User" Width="1.5" PointX="5.375" PointY="3.875" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Suggestes_Users" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.Company" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.DrugAddictionRecoveryVilla" Width="1.5" PointX="8.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.EmergencyPhoneNumber" Width="1.5" PointX="11.375" PointY="5.75" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.FootballCourt" Width="1.5" PointX="6.375" PointY="11.75" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.GasStation" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.Hospital" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.Pharmacy" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="DalilakDatabaseModel.Restaurant" Width="1.5" PointX="9.375" PointY="10.75" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Company_Areas" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_DrugAddictionRecoveryVilla_Areas" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_EmergencyPhoneNumber_Areas" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_FootballCourt_Areas" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_GasStation_Areas" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Pharmacy_Areas" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Restaurants_Areas" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Company_Category" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_DrugAddictionRecoveryVilla_Category" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_EmergencyPhoneNumber_Category" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_FootballCourt_Category" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_GasStation_Category" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Pharmacy_Category" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Restaurants_Category" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

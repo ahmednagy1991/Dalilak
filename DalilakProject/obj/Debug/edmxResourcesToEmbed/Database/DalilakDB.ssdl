@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DalilakDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Areas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AreaName" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="150" />
+    <Property Name="MenuOrder" Type="int" />
+    <Property Name="CategoryImage" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="FK_Category" Type="bigint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="FK_AreaId" Type="bigint" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="DrugAddictionRecoveryVilla">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DrugAddictionRecoveryVillaName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="FK_Category" Type="bigint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="FK_AreaId" Type="bigint" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="EmergencyPhoneNumber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmergencyPhoneNumberName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="FK_Category" Type="bigint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="FK_AreaId" Type="bigint" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="FootballCourt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FootballCourtName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="FK_Category" Type="bigint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="FK_AreaId" Type="bigint" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="GasStation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GasStationName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="FK_Category" Type="bigint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="FK_AreaId" Type="bigint" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Hospital">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HospitalName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="FK_Category" Type="bigint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="FK_AreaId" Type="bigint" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="FK_Category" Type="bigint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="FK_AreaId" Type="bigint" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Pharmacy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PharmacyName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="FK_Category" Type="bigint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="FK_AreaId" Type="bigint" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Restaurants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantsName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="FK_Category" Type="bigint" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="FK_AreaId" Type="bigint" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Suggestes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Suggeset" Type="nvarchar(max)" />
+    <Property Name="FK_UserID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="150" />
+    <Property Name="Password" Type="nvarchar" MaxLength="150" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Emal" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_Company_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DrugAddictionRecoveryVilla_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="DrugAddictionRecoveryVilla" Type="Self.DrugAddictionRecoveryVilla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DrugAddictionRecoveryVilla">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DrugAddictionRecoveryVilla_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="DrugAddictionRecoveryVilla" Type="Self.DrugAddictionRecoveryVilla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DrugAddictionRecoveryVilla">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmergencyPhoneNumber_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="EmergencyPhoneNumber" Type="Self.EmergencyPhoneNumber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmergencyPhoneNumber">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmergencyPhoneNumber_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="EmergencyPhoneNumber" Type="Self.EmergencyPhoneNumber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmergencyPhoneNumber">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FootballCourt_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="FootballCourt" Type="Self.FootballCourt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FootballCourt">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FootballCourt_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="FootballCourt" Type="Self.FootballCourt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FootballCourt">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GasStation_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="GasStation" Type="Self.GasStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GasStation">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GasStation_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="GasStation" Type="Self.GasStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GasStation">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Location_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="Location" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Location_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Location" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pharmacy_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="Pharmacy" Type="Self.Pharmacy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pharmacy">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pharmacy_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Pharmacy" Type="Self.Pharmacy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pharmacy">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Restaurants_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Restaurants">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Restaurants_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Restaurants">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suggestes_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Suggestes" Type="Self.Suggestes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Suggestes">
+        <PropertyRef Name="FK_UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DalilakDatabaseModelStoreContainer">
+    <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DrugAddictionRecoveryVilla" EntityType="Self.DrugAddictionRecoveryVilla" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmergencyPhoneNumber" EntityType="Self.EmergencyPhoneNumber" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FootballCourt" EntityType="Self.FootballCourt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GasStation" EntityType="Self.GasStation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pharmacy" EntityType="Self.Pharmacy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suggestes" EntityType="Self.Suggestes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Company_Areas" Association="Self.FK_Company_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_Category" Association="Self.FK_Company_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DrugAddictionRecoveryVilla_Areas" Association="Self.FK_DrugAddictionRecoveryVilla_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="DrugAddictionRecoveryVilla" EntitySet="DrugAddictionRecoveryVilla" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DrugAddictionRecoveryVilla_Category" Association="Self.FK_DrugAddictionRecoveryVilla_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="DrugAddictionRecoveryVilla" EntitySet="DrugAddictionRecoveryVilla" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmergencyPhoneNumber_Areas" Association="Self.FK_EmergencyPhoneNumber_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="EmergencyPhoneNumber" EntitySet="EmergencyPhoneNumber" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmergencyPhoneNumber_Category" Association="Self.FK_EmergencyPhoneNumber_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="EmergencyPhoneNumber" EntitySet="EmergencyPhoneNumber" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FootballCourt_Areas" Association="Self.FK_FootballCourt_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="FootballCourt" EntitySet="FootballCourt" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FootballCourt_Category" Association="Self.FK_FootballCourt_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="FootballCourt" EntitySet="FootballCourt" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GasStation_Areas" Association="Self.FK_GasStation_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="GasStation" EntitySet="GasStation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GasStation_Category" Association="Self.FK_GasStation_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="GasStation" EntitySet="GasStation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Location_Areas" Association="Self.FK_Location_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Location_Category" Association="Self.FK_Location_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pharmacy_Areas" Association="Self.FK_Pharmacy_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="Pharmacy" EntitySet="Pharmacy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pharmacy_Category" Association="Self.FK_Pharmacy_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Pharmacy" EntitySet="Pharmacy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Restaurants_Areas" Association="Self.FK_Restaurants_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="Restaurants" EntitySet="Restaurants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Restaurants_Category" Association="Self.FK_Restaurants_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Restaurants" EntitySet="Restaurants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suggestes_Users" Association="Self.FK_Suggestes_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Suggestes" EntitySet="Suggestes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

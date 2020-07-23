@@ -1,0 +1,42 @@
+﻿@model DalilakProject.Database.Suggeste
+
+@{
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Suggeste</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Suggeset)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Suggeset)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.User.Username)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.User.Username)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

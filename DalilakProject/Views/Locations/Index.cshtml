@@ -1,0 +1,82 @@
+﻿@model IEnumerable<DalilakProject.Database.Location>
+
+@{
+    ViewBag.Title = "Index";
+      Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area.AreaName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItemodel => item.LocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItemodel => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItemodel => item.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItemodel => item.Longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItemodel => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItemodel => item.Phone)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItemodel => item.Image)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItemodel => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItemodel => item.Area.AreaName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
