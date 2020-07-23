@@ -12,11 +12,19 @@ namespace DalilakProject.Controllers
     {
         public ActionResult Index()
         {
-
+            using (var db = new DalilakDatabaseEntities1())
+            {
+                ViewBag.cats = db.Categories.Select(m => new SelectListItem() { Text = m.CategoryName, Value = m.CategoryName }).ToList();
+            }
             return View();
         }
 
         public ActionResult Admin()
+        {
+
+            return View();
+        }
+        public ActionResult AboutUs()
         {
 
             return View();
@@ -50,9 +58,9 @@ namespace DalilakProject.Controllers
             return View();
         }
 
-        public ActionResult Search(string Keyword)
+        public ActionResult Search(string Keyword, string category)
         {
-            var category = "Restaurants";
+            //var category = "Restaurants";
             //LocationModel model = new LocationModel();
             string lower_search = Keyword.ToLower();
             using (var db = new DalilakDatabaseEntities1())

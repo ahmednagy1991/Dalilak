@@ -102,26 +102,47 @@
                             </br>
                             </br>
                             </br>
-                            </br>
-                            </br>
-                            </br>
-                            </br>
-                            </br>
 
+
+                          
 
 
 
 
                             <div class="find_dowmain">
-                                @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "find_dowmain_form" }))
+                                @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "" }))
                                 {
-                                    @Html.TextBox("Keyword", null, new { placeholder = "Find your Needs" })
-                                    <button type="submit">Search</button>
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-10">
+                                            @Html.TextBox("Keyword", null, new { placeholder = "Find your Needs", @class = "form-control" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("category", (List<SelectListItem>)ViewBag.cats, null, new { @class = "form-control", placeholder = "Find your Needs" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-10">
+                                            <button class="btn btn-primary" type="submit">Search</button>
+                                        </div>
+                                    </div>
+
+
+
+
                                 }
                                 @*<form action="#" class="find_dowmain_form">
-                                    <input type="text" placeholder="Find your Needs">
-                                    <button type="search">Search</button>
-                                </form>*@
+            <input type="text" placeholder="Find your Needs">
+            <button type="search">Search</button>
+        </form>*@
                             </div>
                         </div>
                     </div>
