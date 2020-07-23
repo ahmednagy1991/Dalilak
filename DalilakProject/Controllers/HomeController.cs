@@ -52,19 +52,90 @@ namespace DalilakProject.Controllers
 
         public ActionResult Search(string Keyword)
         {
-            LocationModel model = new LocationModel();
+            var category = "Restaurants";
+            //LocationModel model = new LocationModel();
             string lower_search = Keyword.ToLower();
             using (var db = new DalilakDatabaseEntities1())
             {
 
-                var locatoin_list = db.Locations.Where(m =>
-                (string.IsNullOrEmpty(lower_search)) ||
-                (m.LocationName.ToLower().Contains(lower_search))).ToList();
-                model.Locations = locatoin_list;
+                //if (category == "Restaurants")
+                //{
+                //    var locatoin_list = db.Restaurants.Where(m =>
+                //        (string.IsNullOrEmpty(lower_search)) ||
+                //        (m.LocationName.ToLower().Contains(lower_search))).ToList();
+                //    model.Locations = locatoin_list;
+                //}
+
+                if (category == "Companies")
+                {
+                    var model = db.Companies.Where(m =>
+                        (string.IsNullOrEmpty(lower_search)) ||
+                        (m.CompanyName.ToLower().Contains(lower_search))).ToList();
+
+                    return View("Company", model);
+                }
+                else if (category == "Drug Addiction Recovery")
+                {
+                    var model = db.DrugAddictionRecoveryVillas.Where(m =>
+                        (string.IsNullOrEmpty(lower_search)) ||
+                        (m.DrugAddictionRecoveryVillaName.ToLower().Contains(lower_search))).ToList();
+
+                    return View("DrugAddictionRecoveryVilla", model);
+                }
+                else if (category == "Emergency Phone Number")
+                {
+                    var model = db.EmergencyPhoneNumbers.Where(m =>
+                       (string.IsNullOrEmpty(lower_search)) ||
+                       (m.EmergencyPhoneNumberName.ToLower().Contains(lower_search))).ToList();
+
+                    return View("EmergencyPhoneNumber", model);
+                }
+                else if (category == "Football Curts")
+                {
+                    var model = db.FootballCourts.Where(m =>
+                      (string.IsNullOrEmpty(lower_search)) ||
+                      (m.FootballCourtName.ToLower().Contains(lower_search))).ToList();
+
+                    return View("FootballCurt", model);
+                }
+                else if (category == "Gas Stations & Services ")
+                {
+                    var model = db.GasStations.Where(m =>
+                      (string.IsNullOrEmpty(lower_search)) ||
+                      (m.GasStationName.ToLower().Contains(lower_search))).ToList();
+
+                    return View("GasStations", model);
+                }
+                else if (category == "Hospitals")
+                {
+                    var model = db.Hospitals.Where(m =>
+                     (string.IsNullOrEmpty(lower_search)) ||
+                     (m.HospitalName.ToLower().Contains(lower_search))).ToList();
+
+                    return View("Hospitals", model);
+                }
+                else if (category == "Pharmacies")
+                {
+                    var model = db.Pharmacies.Where(m =>
+                    (string.IsNullOrEmpty(lower_search)) ||
+                    (m.PharmacyName.ToLower().Contains(lower_search))).ToList();
+
+                    return View("Pharmacies", model);
+                }
+                else if (category == "Restaurants")
+                {
+                    var model = db.Restaurants.Where(m =>
+                  (string.IsNullOrEmpty(lower_search)) ||
+                  (m.RestaurantsName.ToLower().Contains(lower_search))).ToList();
+
+                    return View("Restaurants", model);
+                }
+
+
 
 
             }
-            return View("loadlocations", model);
+            return View("loadlocations");
         }
         //public ActionResult LoadCategories(long areaId)
         //{
