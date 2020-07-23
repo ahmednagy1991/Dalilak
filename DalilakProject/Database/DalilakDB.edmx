@@ -323,6 +323,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Hospital_Areas">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hospital">
+              <PropertyRef Name="FK_AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hospital_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hospital">
+              <PropertyRef Name="FK_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Location_Areas">
           <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
           <End Role="Location" Type="Self.Location" Multiplicity="*" />
@@ -462,6 +486,14 @@
             <End Role="Category" EntitySet="Category" />
             <End Role="GasStation" EntitySet="GasStation" />
           </AssociationSet>
+          <AssociationSet Name="FK_Hospital_Areas" Association="Self.FK_Hospital_Areas">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="Hospital" EntitySet="Hospital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hospital_Category" Association="Self.FK_Hospital_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Hospital" EntitySet="Hospital" />
+          </AssociationSet>
           <AssociationSet Name="FK_Location_Areas" Association="Self.FK_Location_Areas">
             <End Role="Areas" EntitySet="Areas" />
             <End Role="Location" EntitySet="Location" />
@@ -509,6 +541,7 @@
           <NavigationProperty Name="GasStations" Relationship="DalilakDatabaseModel.FK_GasStation_Areas" FromRole="Area" ToRole="GasStation" />
           <NavigationProperty Name="Pharmacies" Relationship="DalilakDatabaseModel.FK_Pharmacy_Areas" FromRole="Area" ToRole="Pharmacy" />
           <NavigationProperty Name="Restaurants" Relationship="DalilakDatabaseModel.FK_Restaurants_Areas" FromRole="Area" ToRole="Restaurant" />
+          <NavigationProperty Name="Hospitals" Relationship="DalilakDatabaseModel.FK_Hospital_Areas" FromRole="Area" ToRole="Hospital" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -527,6 +560,7 @@
           <NavigationProperty Name="GasStations" Relationship="DalilakDatabaseModel.FK_GasStation_Category" FromRole="Category" ToRole="GasStation" />
           <NavigationProperty Name="Pharmacies" Relationship="DalilakDatabaseModel.FK_Pharmacy_Category" FromRole="Category" ToRole="Pharmacy" />
           <NavigationProperty Name="Restaurants" Relationship="DalilakDatabaseModel.FK_Restaurants_Category" FromRole="Category" ToRole="Restaurant" />
+          <NavigationProperty Name="Hospitals" Relationship="DalilakDatabaseModel.FK_Hospital_Category" FromRole="Category" ToRole="Hospital" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -663,6 +697,14 @@
           <AssociationSet Name="FK_Restaurants_Category" Association="DalilakDatabaseModel.FK_Restaurants_Category">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Restaurant" EntitySet="Restaurants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hospital_Areas" Association="DalilakDatabaseModel.FK_Hospital_Areas">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Hospital" EntitySet="Hospitals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hospital_Category" Association="DalilakDatabaseModel.FK_Hospital_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Hospital" EntitySet="Hospitals" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Suggeste">
@@ -808,6 +850,8 @@
           <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="FK_AreaId" Type="Int64" />
           <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="DalilakDatabaseModel.FK_Hospital_Areas" FromRole="Hospital" ToRole="Area" />
+          <NavigationProperty Name="Category" Relationship="DalilakDatabaseModel.FK_Hospital_Category" FromRole="Hospital" ToRole="Category" />
         </EntityType>
         <EntityType Name="Pharmacy">
           <Key>
@@ -1011,6 +1055,30 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Restaurant">
+              <PropertyRef Name="FK_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hospital_Areas">
+          <End Type="DalilakDatabaseModel.Area" Role="Area" Multiplicity="0..1" />
+          <End Type="DalilakDatabaseModel.Hospital" Role="Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hospital">
+              <PropertyRef Name="FK_AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hospital_Category">
+          <End Type="DalilakDatabaseModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="DalilakDatabaseModel.Hospital" Role="Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hospital">
               <PropertyRef Name="FK_Category" />
             </Dependent>
           </ReferentialConstraint>

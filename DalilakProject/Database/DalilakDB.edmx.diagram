@@ -36,6 +36,8 @@
         <AssociationConnector Association="DalilakDatabaseModel.FK_GasStation_Category" />
         <AssociationConnector Association="DalilakDatabaseModel.FK_Pharmacy_Category" />
         <AssociationConnector Association="DalilakDatabaseModel.FK_Restaurants_Category" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Hospital_Areas" />
+        <AssociationConnector Association="DalilakDatabaseModel.FK_Hospital_Category" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

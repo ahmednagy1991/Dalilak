@@ -318,6 +318,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Hospital_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hospital">
+        <PropertyRef Name="FK_AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hospital_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hospital">
+        <PropertyRef Name="FK_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Location_Areas">
     <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
@@ -456,6 +480,14 @@
     <AssociationSet Name="FK_GasStation_Category" Association="Self.FK_GasStation_Category">
       <End Role="Category" EntitySet="Category" />
       <End Role="GasStation" EntitySet="GasStation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hospital_Areas" Association="Self.FK_Hospital_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="Hospital" EntitySet="Hospital" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hospital_Category" Association="Self.FK_Hospital_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Hospital" EntitySet="Hospital" />
     </AssociationSet>
     <AssociationSet Name="FK_Location_Areas" Association="Self.FK_Location_Areas">
       <End Role="Areas" EntitySet="Areas" />

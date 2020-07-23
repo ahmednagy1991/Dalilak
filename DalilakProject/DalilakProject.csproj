@@ -154,8 +154,12 @@
     <Compile Include="Controllers\DrugAddictionRecoveryVillasController.cs" />
     <Compile Include="Controllers\EmergencyPhoneNumbersController.cs" />
     <Compile Include="Controllers\FootballCourtsController.cs" />
+    <Compile Include="Controllers\GasStationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HospitalsController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\PharmaciesController.cs" />
+    <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Controllers\SuggesetController.cs" />
     <Compile Include="Controllers\SuggestesController.cs" />
     <Compile Include="Database\Area.cs">
@@ -630,6 +634,30 @@
     <Content Include="Views\FootballCourts\Edit.cshtml" />
     <Content Include="Views\FootballCourts\Index.cshtml" />
     <Content Include="Views\Home\FootballCurt.cshtml" />
+    <Content Include="Views\GasStations\Create.cshtml" />
+    <Content Include="Views\GasStations\Delete.cshtml" />
+    <Content Include="Views\GasStations\Details.cshtml" />
+    <Content Include="Views\GasStations\Edit.cshtml" />
+    <Content Include="Views\GasStations\Index.cshtml" />
+    <Content Include="Views\Home\GasStations.cshtml" />
+    <Content Include="Views\Home\Hospitals.cshtml" />
+    <Content Include="Views\Hospitals\Create.cshtml" />
+    <Content Include="Views\Hospitals\Delete.cshtml" />
+    <Content Include="Views\Hospitals\Details.cshtml" />
+    <Content Include="Views\Hospitals\Edit.cshtml" />
+    <Content Include="Views\Hospitals\Index.cshtml" />
+    <Content Include="Views\Pharmacies\Create.cshtml" />
+    <Content Include="Views\Pharmacies\Delete.cshtml" />
+    <Content Include="Views\Pharmacies\Details.cshtml" />
+    <Content Include="Views\Pharmacies\Edit.cshtml" />
+    <Content Include="Views\Pharmacies\Index.cshtml" />
+    <Content Include="Views\Home\Pharmacies.cshtml" />
+    <Content Include="Views\Restaurants\Create.cshtml" />
+    <Content Include="Views\Restaurants\Delete.cshtml" />
+    <Content Include="Views\Restaurants\Details.cshtml" />
+    <Content Include="Views\Restaurants\Edit.cshtml" />
+    <Content Include="Views\Restaurants\Index.cshtml" />
+    <Content Include="Views\Home\Restaurants.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

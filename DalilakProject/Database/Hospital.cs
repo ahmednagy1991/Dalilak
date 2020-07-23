@@ -26,5 +26,8 @@ namespace DalilakProject.Database
         public string Image { get; set; }
         public Nullable<long> FK_AreaId { get; set; }
         public string Website { get; set; }
+    
+        public virtual Area Area { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

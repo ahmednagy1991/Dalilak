@@ -95,11 +95,49 @@ namespace DalilakProject.Controllers
                 {
                     return View("FootballCurt", db.FootballCourts.Where(m => m.FK_Category == catId && m.FK_AreaId == areaId).ToList());
                 }
+                else if (cat.CategoryName == "Gas Stations & Services ")
+                {
+                    return View("GasStations", db.GasStations.Where(m => m.FK_Category == catId && m.FK_AreaId == areaId).ToList());
+                }
+                else if (cat.CategoryName == "Hospitals")
+                {
+                    return View("Hospitals", db.Hospitals.Where(m => m.FK_Category == catId && m.FK_AreaId == areaId).ToList());
+                }
+                else if (cat.CategoryName == "Pharmacies")
+                {
+                    return View("Pharmacies", db.Pharmacies.Where(m => m.FK_Category == catId && m.FK_AreaId == areaId).ToList());
+                }
+                else if (cat.CategoryName == "Restaurants")
+                {
+                    return View("Restaurants", db.Restaurants.Where(m => m.FK_Category == catId && m.FK_AreaId == areaId).ToList());
+                }
                 //model.Locations = db.Locations.Where(m => m.FK_Category == catId && m.FK_AreaId == areaId).ToList();
             }
             return View(model);
         }
 
+
+
+        public ActionResult Restaurants(List<Restaurant> model)
+        {
+            return View(model);
+        }
+
+
+        public ActionResult Pharmacies(List<Pharmacy> model)
+        {
+            return View(model);
+        }
+
+        public ActionResult Hospitals(List<Hospital> model)
+        {
+            return View(model);
+        }
+
+        public ActionResult GasStations(List<GasStation> model)
+        {
+            return View(model);
+        }
 
         public ActionResult FootballCurt(List<FootballCourt> model)
         {

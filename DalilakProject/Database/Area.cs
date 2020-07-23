@@ -25,6 +25,7 @@ namespace DalilakProject.Database
             this.GasStations = new HashSet<GasStation>();
             this.Pharmacies = new HashSet<Pharmacy>();
             this.Restaurants = new HashSet<Restaurant>();
+            this.Hospitals = new HashSet<Hospital>();
         }
     
         public long Id { get; set; }
@@ -46,5 +47,7 @@ namespace DalilakProject.Database
         public virtual ICollection<Pharmacy> Pharmacies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Restaurant> Restaurants { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Hospital> Hospitals { get; set; }
     }
 }
